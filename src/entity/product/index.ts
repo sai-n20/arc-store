@@ -9,6 +9,7 @@ export interface IProduct {
   desc: string;
   tags: string[];
   price: number;
+  quantity: number;
 }
 
 export class Product implements IProduct {
@@ -30,6 +31,9 @@ export class Product implements IProduct {
   @IsNumber()
   public price: number;
 
+  @IsNumber()
+  public quantity: number;
+
   public validate(): ValidationError[] { return validateSync(this); }
   public validateErrMsg(): string { return combineValidationError(this); }
 
@@ -39,6 +43,7 @@ export class Product implements IProduct {
     this.desc = get(obj, 'desc');
     this.tags = get(obj, 'tags');
     this.price = get(obj, 'price');
+    this.quantity = get(obj, 'quantity');
   }
 
 }
