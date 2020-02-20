@@ -407,6 +407,9 @@
         },
         "price": {
           "type": "number"
+        },
+        "quantity": {
+          "type": "number"
         }
       }
     },
