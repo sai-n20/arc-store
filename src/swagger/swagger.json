@@ -406,7 +406,7 @@
           }
         },
         "price": {
-          "type": "number"
+          "type": "string"
         },
         "quantity": {
           "type": "number"
