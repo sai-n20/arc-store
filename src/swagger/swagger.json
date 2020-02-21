@@ -413,6 +413,9 @@
         },
         "quantity": {
           "type": "number"
+        },
+        "category": {
+          "type": "string"
         }
       }
     },
