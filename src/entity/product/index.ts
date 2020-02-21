@@ -11,6 +11,7 @@ export interface IProduct {
   tags: string[];
   price: string;
   quantity: number;
+  category: string;
 }
 
 export class Product implements IProduct {
@@ -38,6 +39,9 @@ export class Product implements IProduct {
   @IsNumber()
   public quantity: number;
 
+  @IsString()
+  public category: string;
+
   public validate(): ValidationError[] { return validateSync(this); }
   public validateErrMsg(): string { return combineValidationError(this); }
 
@@ -49,6 +53,7 @@ export class Product implements IProduct {
     this.tags = get(obj, 'tags');
     this.price = get(obj, 'price');
     this.quantity = get(obj, 'quantity');
+    this.category = get(obj, 'category');
   }
 
 }
