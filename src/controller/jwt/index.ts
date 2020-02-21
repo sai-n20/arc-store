@@ -27,12 +27,12 @@ export default class JwtController implements IOAuth2 {
         const accessToken = sign(
           user,
           process.env['APP.SECURITY.ACCESS_TOKEN_SECRET'] || '',
-          { expiresIn: '10m' }
+          { expiresIn: '4h' }
         );
         const refreshToken = sign(
           user,
           process.env['APP.SECURITY.REFRESH_TOKEN_SECRET'] || '',
-          { expiresIn: '1h' }
+          { expiresIn: '2d' }
         );
         resolve(new Token(accessToken, refreshToken));
         this.repository.insertOne(tokenSchema, { refreshToken }).then().catch();
