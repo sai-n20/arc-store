@@ -399,6 +399,9 @@
         "desc": {
           "type": "string"
         },
+        "specifications": {
+          "type": "object"
+        },
         "tags": {
           "type": "array",
           "items": {
