@@ -4,7 +4,7 @@
   "scripts": {
     "build": "node ./util/build.js",
     "lint": "tslint --project \"tsconfig.json\"",
-    "start": "node ./dist --NODE_ENV prod",
+    "start": "ts-node ./src --NODE_ENV dev",
     "start:dev": "nodemon --config nodemon.json",
     "test": "ts-mocha test/mdm/user/test.ts --timeout=15000 --exit"
   },
