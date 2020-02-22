@@ -12,7 +12,7 @@ class MongoRepository implements IRepository {
   public provider: string = 'MongoDB';
   public isConnected: boolean = false;
   private dbObj: MongoClient = new MongoClient(
-    process.env['REPOSITORY.MONGO.CONNSTR'] as string,
+    process.env['REPOSITORY_MONGO_CONNSTR'] as string,
     {
       useUnifiedTopology: true,
       useNewUrlParser: true
@@ -22,11 +22,11 @@ class MongoRepository implements IRepository {
   constructor() {
     this.dbObj.connect()
       .then(() => {
-        eventHandler.emit('repo-conn-s', this.provider, process.env['REPOSITORY.MONGO.CONNSTR'] as string);
+        eventHandler.emit('repo-conn-s', this.provider, process.env['REPOSITORY_MONGO_CONNSTR'] as string);
         this.isConnected = true;
       })
       .catch((error) => {
-        eventHandler.emit('repo-conn-f', this.provider, process.env['REPOSITORY.MONGO.CONNSTR'] as string, error);
+        eventHandler.emit('repo-conn-f', this.provider, process.env['REPOSITORY_MONGO_CONNSTR'] as string, error);
       });
   }
 

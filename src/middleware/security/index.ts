@@ -9,8 +9,8 @@ const router = Router();
 
 const rateLimiter = new RateLimiterMemory({
   keyPrefix: 'middleware',
-  points: Number(process.env['APP.SECURITY.RATE_LIMITER.MAX_REQ'] || '1000'),
-  duration: Number(process.env['APP.SECURITY.RATE_LIMITER.MAX_REQ'] || '1')
+  points: Number(process.env['RATELIMITER_MAXREQ'] || '1000'),
+  duration: Number(process.env['RATELIMITER_TIME'] || '1')
 });
 
 router.use(helmet());
