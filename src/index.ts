@@ -20,8 +20,8 @@ let server: Server;
 init(app, (error) => {
   if (error) { throw error; }
   else {
-    server = app.listen((process.env['NODE_PORT'] || process.env['APP.PORT']), () => {
-      eventHandler.emit('sys-info', `Express app started at ${process.env['NODE_PORT'] || process.env['APP.PORT']}.`);
+    server = app.listen((process.env['NODE_PORT'] || process.env['PORT']), () => {
+      eventHandler.emit('sys-info', `Express app started at ${process.env['NODE_PORT'] || process.env['PORT']}.`);
     });
   }
 });

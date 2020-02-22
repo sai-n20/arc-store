@@ -8,8 +8,8 @@ const router = Router();
 
 const swaggerDoc: object = JSON.parse(readFileSync(join(__dirname, 'swagger.json'), { encoding: 'utf-8' }));
 
-set(swaggerDoc, 'host', `${process.env['APP.HOST']}:${process.env['APP.PORT']}`);
-set(swaggerDoc, 'schemes', [process.env['APP.SCHEME']]);
+set(swaggerDoc, 'host', `${process.env['HOST']}:${process.env['PORT']}`);
+set(swaggerDoc, 'schemes', [process.env['SCHEME']]);
 
 router.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 router.use('/api-docs.json', (req, res) => { res.json(swaggerDoc).end(); });

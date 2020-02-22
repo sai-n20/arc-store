@@ -26,12 +26,12 @@ export default class JwtController implements IOAuth2 {
       try {
         const accessToken = sign(
           user,
-          process.env['APP.SECURITY.ACCESS_TOKEN_SECRET'] || '',
+          process.env['ACCESS_TOKEN_SECRET'] || '',
           { expiresIn: '4h' }
         );
         const refreshToken = sign(
           user,
-          process.env['APP.SECURITY.REFRESH_TOKEN_SECRET'] || '',
+          process.env['REFRESH_TOKEN_SECRET'] || '',
           { expiresIn: '2d' }
         );
         resolve(new Token(accessToken, refreshToken));
@@ -65,7 +65,7 @@ export default class JwtController implements IOAuth2 {
 
   public async validateAccessToken(token: string) {
     return new Promise<TokenError | object>(async (resolve, reject) => {
-      verify(token, process.env['APP.SECURITY.ACCESS_TOKEN_SECRET'] || '', (err, user) => {
+      verify(token, process.env['ACCESS_TOKEN_SECRET'] || '', (err, user) => {
         if (err) {
           reject(new TokenError('Inavlid / Expired token!'));
         } else {
@@ -78,7 +78,7 @@ export default class JwtController implements IOAuth2 {
 
   public async validateRefreshToken(token: string) {
     return new Promise<TokenError | object>(async (resolve, reject) => {
-      verify(token, process.env['APP.SECURITY.REFRESH_TOKEN_SECRET'] || '', (err, user) => {
+      verify(token, process.env['REFRESH_TOKEN_SECRET'] || '', (err, user) => {
         if (err) {
           reject(new TokenError('Inavlid / Expired token!'));
         } else {
