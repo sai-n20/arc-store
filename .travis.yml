@@ -1,13 +1,14 @@
 language: node_js
 node_js:
-  - lts/*
+- lts/*
 script:
-  - "npm run test"
+- npm run test
 services:
-  - mongodb
+- mongodb
 deploy:
   provider: heroku
-# safelist
+  api_key:
+    secure: MlI5WpkU5MIuiueGnE6CngbRdBjs4HSm9rlpYMDFipCV0gEDPq5gR/YFxSjwshKT+q0FFnVNLyIoVFnlEfLBxUjQwpO499HG++3JMTCu4HrqZKFxhT2Hk3AISLahp2I5BripmQ3Te4IqIxIxmDSvtZ2Tv6+GcHJdyuVEzA+qpsdmHfTnC1dSxoLUQi8mBF0AB9ou+aaXaXTOOLeICKepJ+AAISom+L+coBauACRAfw+s7ug0fLkrypUshqUvcgdWv1JtUQDxRAhtY6m2gJhLY4K/czlmRA1k43pKv3hE3UJ7ty1YvHYRvGwHt9wBzXR6DIoDbpj1+xdIolayV8Gb83Q/dk+dNKwAYcDnO7Br2R+a31DO93b1LBWyOguhy9Y4CklmHdw0LSwQntAY1VuCqzf+vOzwl2w5Hq0dUeo+zo4Ze5z5EiYlkkh7dGCz3/a7urSL51kUhVq2ALnfjhM6VqZbHzzP+cESJBXTmJPUS2fELZHwieUAKO8UWIQPFz6IVppPIEOLBcW7V1QcD5nXa84zxdr+hr8DN4f9U28S4EguTUhGsuNMF1erkRwCIdcWWTJVMqqF0EhjuwKYzSloqF0gSXkHVC720f1iNF3TtohW7swr4WY3nB8iRSV3B94Xa3BsaGz+eus0rKbCQKCfmcihQ3CGKWygZd5ulkRdT8U=
 branches:
   only:
   - master
