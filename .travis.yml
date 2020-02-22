@@ -5,3 +5,9 @@ script:
   - "npm run test"
 services:
   - mongodb
+deploy:
+  provider: heroku
+# safelist
+branches:
+  only:
+  - master
